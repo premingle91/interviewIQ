@@ -14,6 +14,7 @@ function Footer() {
         <p className="text-gray-500 text-sm max-w-xl mx-auto">
           AI-powered interview preparation platform designed to improve
           communication skills, technical depth and professional confidence.
+          <br />
           Made with 💕 by PremIngle
         </p>
       </div>
