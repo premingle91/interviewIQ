@@ -142,7 +142,7 @@ You are a real human interviewer conducting a professional interview.
 
 Speak in simple, natural English as if you are directly talking to the candidate.
 
-Generate exactly 5 interview questions.
+Generate exactly 10 interview questions.
 
 Strict Rules:
 - Each question must contain between 15 and 25 words.
@@ -157,9 +157,14 @@ Strict Rules:
 Difficulty progression:
 Question 1 → easy  
 Question 2 → easy  
-Question 3 → medium  
+Question 3 → easy  
 Question 4 → medium  
-Question 5 → hard  
+Question 5 → medium  
+Question 6 → medium  
+Question 7 → medium  
+Question 8 → hard  
+Question 9 → hard  
+Question 10 → hard  
 
 Make questions based on the candidate’s role, experience,interviewMode, projects, skills, and resume details.
 `
@@ -186,7 +191,7 @@ Make questions based on the candidate’s role, experience,interviewMode, projec
       .split("\n")
       .map(q => q.trim())
       .filter(q => q.length > 0)
-      .slice(0, 5);
+      .slice(0, 10);
 
     if (questionsArray.length === 0) {
       
@@ -206,8 +211,8 @@ Make questions based on the candidate’s role, experience,interviewMode, projec
       resumeText: safeResume,
       questions: questionsArray.map((q, index) => ({
         question: q,
-        difficulty: ["easy", "easy", "medium", "medium", "hard"][index],
-        timeLimit: [60, 60, 90, 90, 120][index],
+        difficulty: ["easy", "easy", "easy", "medium", "medium", "medium", "medium", "hard", "hard", "hard"][index],
+        timeLimit: [60, 60, 60, 90, 90, 90, 90, 120, 120, 120][index],
       }))
     })
 
@@ -454,7 +459,3 @@ export const getInterviewReport = async (req,res) => {
     return res.status(500).json({message:`failed to find currentUser Interview report ${error}`})
   }
 }
-
-
-
-
